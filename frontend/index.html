@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crop Advisor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 data-i18n="title"></h1>
+      <p data-i18n="subtitle"></p>
+    </div>
+    <select id="lang">
+      <option value="en">English</option>
+      <option value="sw">Kiswahili</option>
+    </select>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 data-i18n="climate"></h2>
+      <div class="row">
+        <input id="city" placeholder="Nairobi">
+        <button id="weatherBtn" data-i18n="fetch_weather"></button>
+      </div>
+      <p id="weatherMsg" class="hint"></p>
+      <div class="grid">
+        <label><span data-i18n="temperature"></span><input id="temperature" type="number" step="any"></label>
+        <label><span data-i18n="humidity"></span><input id="humidity" type="number" step="any"></label>
+        <label><span data-i18n="rainfall"></span><input id="rainfall" type="number" step="any"></label>
+      </div>
+      <p class="hint" data-i18n="rain_note"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="soil"></h2>
+      <div class="grid">
+        <label><span data-i18n="N"></span><input id="N" type="number" step="any"></label>
+        <label><span data-i18n="P"></span><input id="P" type="number" step="any"></label>
+        <label><span data-i18n="K"></span><input id="K" type="number" step="any"></label>
+        <label><span data-i18n="ph"></span><input id="ph" type="number" step="any"></label>
+      </div>
+      <button id="predictBtn" class="primary" data-i18n="recommend"></button>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section id="results"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

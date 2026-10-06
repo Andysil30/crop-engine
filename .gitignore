@@ -1,0 +1,8 @@
+venv/
+.venv/
+.venv-1/
+.env
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+models/*.pkl
