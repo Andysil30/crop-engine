@@ -9,7 +9,11 @@ load_dotenv()
 
 online_url = os.getenv("DATABASE_URL")          # set on Render
 if online_url:
-    DATABASE_URL = online_url.replace("postgres://", "postgresql://", 1)
+    DATABASE_URL = online_url
+    for prefix in ("postgres://", "postgresql://"):
+        if online_url.startswith(prefix):
+            DATABASE_URL = "postgresql+psycopg2://" + online_url[len(prefix):]
+            break
 else:                                           # your laptop (.env pieces)
     DATABASE_URL = URL.create(
         "postgresql+psycopg2",
