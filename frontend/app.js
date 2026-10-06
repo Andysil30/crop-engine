@@ -104,3 +104,7 @@ $("lang").addEventListener("change", e => loadLang(e.target.value));
 const saved = localStorage.getItem("lang") || "en";
 $("lang").value = saved;
 loadLang(saved);
+// Register the helper that makes the app installable
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js").catch(() => {});
+}
